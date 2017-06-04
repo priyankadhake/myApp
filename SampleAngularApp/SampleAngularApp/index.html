@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html >
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+
+    <link href="Content/bootstrap.css" rel="stylesheet"/>
+    <link href="Content/bootstrap.min.css" rel="stylesheet"  media="screen"/>
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+  
+    <script src="Controller/lotus-controller.js"></script>
+</head>
+<body ng-app="app">
+    <div ng-controller="lotusController">
+       <div class="page-con">
+           <div class="container" style="padding-top:50px;">
+               <div class="row justify-content-md-center">
+                   <div class="col col-lg-4">
+                       <label>Department</label>
+                       <div ng-repeat="dpt in Data.Depatrments">
+                        <input type="checkbox" ng-model="isSelected"  ng-click="dptClick(dpt.deptid,isSelected)"/>
+                              <label>{{dpt.deptname}}</label>                           
+                       </div>
+                   </div>
+                   <div class="col col-lg-4">
+                       <label>Group</label>
+                      <div ng-repeat="group in groupList">
+                          <input type="checkbox" ng-model="isgrpSelected" ng-click="groupClick(group.GroupId,isgrpSelected)" />
+                          <label>{{group.GroupName}}</label>
+                      </div>
+                   </div>
+                   <div class="col col-lg-4">
+                       <label>Employee</label>
+                       <div ng-repeat="emp in empList">
+                           <input type="checkbox" ng-model="isempSelected" ng-click="empClick(emp.empId,isempSelected)" />
+                           <label>{{emp.empName}}</label>
+                       </div>
+                   </div>
+               </div>
+               <button class="btn-group" ng-click="btnSubmit()">Submit</button>
+
+             <div>
+                 <textarea ng-model="txtData" ></textarea>
+             </div>
+           </div>
+
+       </div>
+    </div>
+</body>
+</html>
